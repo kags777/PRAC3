@@ -7,6 +7,7 @@ class APP
     static void Main()
     {
         ArrayListTest();
+        QueueTest();
     }
 
 
@@ -45,7 +46,21 @@ class APP
             queue.Enqueue(rand2.Next(1, 100));//Enqueue-метод для добавления эл-ов в очередь
         }
 
-        Console.WriteLine("Элементы очереди: ");
+        Console.WriteLine("\nЭлементы очереди: ");
+        foreach (var item in queue)
+        {
+            Console.WriteLine(item);
+        }
+
+        int coutDel = rand2.Next(1, 5);
+        Console.WriteLine($"\nИз очереди удалится {coutDel} элемент(а)(ов)");
+
+        for (int i = 0; i < coutDel; i++)
+        {
+            queue.Dequeue();
+        }
+
+        Console.WriteLine("\nОчередь после удаления: ");
         foreach (var item in queue)
         {
             Console.WriteLine(item);
