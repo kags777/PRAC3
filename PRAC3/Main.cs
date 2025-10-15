@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 class APP
 {
@@ -11,12 +12,12 @@ class APP
 
     public static void ArrayListTest()
     {
-        Random rand = new Random();
+        Random rand1 = new Random();
         ArrayList list = new ArrayList();
 
         for (int i = 0; i < 5; i++)
         {
-            list.Add(rand.NextInt64(1, 100));
+            list.Add(rand1.NextInt64(1, 100));
         }
 
 
@@ -36,7 +37,20 @@ class APP
 
     public static void QueueTest() 
     {
-        Queue<int> queue = new Queue<int> { };
+        Random rand2 = new Random();
+        Queue<int> queue = new Queue<int> {};
+
+        for (int i = 0; i < 5; i++)
+        {
+            queue.Enqueue(rand2.Next(1, 100));//Enqueue-метод для добавления эл-ов в очередь
+        }
+
+        Console.WriteLine("Элементы очереди: ");
+        foreach (var item in queue)
+        {
+            Console.WriteLine(item);
+        }
+
     }
 
 }
