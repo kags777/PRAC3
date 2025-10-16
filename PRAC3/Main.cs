@@ -11,6 +11,7 @@ class APP
         FirstCollection.QueueAndListTest();
         Manager.VehicleQueue();
         Manager.VehicleList();
+        Observable.WorkObservable();
     }
 }
 

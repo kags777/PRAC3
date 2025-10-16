@@ -89,6 +89,9 @@ namespace PRAC3
 
             //поиск значения
             Console.WriteLine($"\nПервое вхождение  \"2\": {numbers.IndexOf(2) + 1} позиция");
+
+
+
         }
     }
 }

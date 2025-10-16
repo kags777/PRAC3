@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +93,7 @@ namespace PRAC3
             {
                 Console.WriteLine(item);
             }
+
         }
 
         public class CarComparer : IComparer<BaseVehicle>
@@ -114,6 +116,10 @@ namespace PRAC3
                 return x.Price.CompareTo(y.Price);
             }
         }
+
+        
+
+
         public static string CompareCars(BaseVehicle car1, BaseVehicle car2)
         {
             CarComparer comparer = new CarComparer();
