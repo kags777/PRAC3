@@ -66,6 +66,31 @@ class APP
             Console.WriteLine(item);
         }
 
+        //Различные варианты добавления чисел в очередь
+        queue.Enqueue(2);//обычный метод для добавления эл-ов в очередь
+        
+        //добавление из массива
+        int[] values = { 5, 6, 7 };
+        foreach (int v in values)
+            queue.Enqueue(v);
+
+        Console.WriteLine("\nОчередь после добавления различных элементов: ");
+        foreach (var item in queue)
+        {
+            Console.WriteLine(item);
+        }
+
+        //Работа со второй коллекцией
+        List<int> numbers = new List<int>(queue);
+
+        Console.WriteLine("\nСписок: ");
+        foreach (var item in numbers)
+        {
+            Console.WriteLine(item);
+        }
+
+        //поиск значения
+        Console.WriteLine($"\nПервое вхождение  \"2\": {numbers.IndexOf(2)+1} позиция"); 
     }
 
 }
