@@ -19,12 +19,10 @@ namespace PRAC3
                 list.Add(rand1.NextInt64(1, 100));
             }
 
-
             list.Add("Пицца");
             list.RemoveAt(2);//удаляем 3-й элемент
-            Console.WriteLine($"Количество элементов: {list.Count}");
+            Console.WriteLine($"Количество элементов необобщенной коллекции: {list.Count}");
             Console.WriteLine("\nЭлементы необощенной коллекции:");
-
 
             foreach (var item in list)
             {
@@ -38,7 +36,7 @@ namespace PRAC3
         {
             Random rand2 = new Random();
             Queue<int> queue = new Queue<int> { };
-
+            Console.WriteLine("\nСоздаю очередь.");
             for (int i = 0; i < 5; i++)
             {
                 queue.Enqueue(rand2.Next(1, 100));//Enqueue-метод для добавления эл-ов в очередь
@@ -79,6 +77,7 @@ namespace PRAC3
             }
 
             //Работа со второй коллекцией
+            Console.WriteLine("\nС помощью глубокого копирования выполняется клонирование элементов очереди в список.");
             List<int> numbers = new List<int>(queue);
 
             Console.WriteLine("\nСписок: ");
@@ -89,9 +88,6 @@ namespace PRAC3
 
             //поиск значения
             Console.WriteLine($"\nПервое вхождение  \"2\": {numbers.IndexOf(2) + 1} позиция");
-
-
-
         }
     }
 }

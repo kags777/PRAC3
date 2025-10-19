@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,7 +31,7 @@ namespace PRAC3
         public int CompareTo(BaseVehicle other)
         {
             if (other == null) return 1;
-            return Year.CompareTo(other.Year); // сравнение по возрасту
+            return Year.CompareTo(other.Year); // сравнение по году
         }
 
         public object Clone()
@@ -55,8 +56,7 @@ namespace PRAC3
         public static void VehicleQueue()
         {
             Random rand = new Random();
-
-
+            Console.WriteLine("\nСоздаю очередь из машин.");
             queue.Enqueue(new BaseVehicle("Audi", "Q7", 2020, 5000000));
             queue.Enqueue(new BaseVehicle("Mercedes", "GLS", 2021, 6200000));
             queue.Enqueue(new BaseVehicle("Toyota", "Land Cruiser 300", 2022, 7800000));
@@ -93,8 +93,20 @@ namespace PRAC3
             {
                 Console.WriteLine(item);
             }
-
         }
+
+            public static bool TryParseNumber(string input, out int result)
+            {
+            if (int.TryParse(input, out result))
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: это не число!");
+                return false;
+            }
+    }
 
         public class CarComparer : IComparer<BaseVehicle>
         {
@@ -117,9 +129,6 @@ namespace PRAC3
             }
         }
 
-        
-
-
         public static string CompareCars(BaseVehicle car1, BaseVehicle car2)
         {
             CarComparer comparer = new CarComparer();
@@ -129,8 +138,10 @@ namespace PRAC3
 
         public static void VehicleList()
         {
+            Console.WriteLine("\nС помощью глубокого копирования выполняется клонирование элементов очереди в список.");
             CarComparer comparer = new CarComparer();
             List<BaseVehicle> car = new List<BaseVehicle>(queue);
+            List<BaseVehicle> carClone = car.Select(c => (BaseVehicle)c.Clone()).ToList();
 
             Console.WriteLine("\nСписок: ");
             foreach (var item in car)
@@ -143,8 +154,6 @@ namespace PRAC3
                 Console.WriteLine($"\nПервое вхождение \"Volkswagen\": {index + 1} позиция");
             else
                 Console.WriteLine("\nVolkswagen не найден");
-
-
 
             string result1 = CompareCars(car[car.Count - 1], car[car.Count - 2]);
             Console.WriteLine($"\nМашины под номерами {car.Count - 1} и {car.Count - 2} {result1}");
@@ -159,16 +168,6 @@ namespace PRAC3
             {
                 Console.WriteLine(item);
             }
-
-            List<BaseVehicle> carClone = car.Select(c => (BaseVehicle)c.Clone()).ToList();
-            Console.WriteLine($"\nКопия списка машин: ");
-            foreach (var item in car)
-            {
-                Console.WriteLine(item);
-            }
-
         }
     }
-
-
 }

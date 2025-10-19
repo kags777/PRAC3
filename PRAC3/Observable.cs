@@ -34,14 +34,11 @@ namespace PRAC3
                     Console.WriteLine($"Удалён элемент:\n{item}");
                 }
             }
-
-
         }
-
 
         public static void WorkObservable()
         {
-            Console.WriteLine("\nРабота с наблюдаемым списком: ");
+            Console.WriteLine("\nТеперь создаю и работаю с наблюдаемым списком: ");
             Observable myObservable = new Observable();
 
             // Добавление элементов
@@ -51,6 +48,5 @@ namespace PRAC3
             // Удаление элемента
             myObservable.even.RemoveAt(0);
         }
-
     }
 }
