@@ -77,7 +77,7 @@ namespace PRAC3
             }
 
             //Работа со второй коллекцией
-            Console.WriteLine("\nС помощью глубокого копирования выполняется клонирование элементов очереди в список.");
+            Console.WriteLine("\nКопирую элементы очереди в список.");
             List<int> numbers = new List<int>(queue);
 
             Console.WriteLine("\nСписок: ");

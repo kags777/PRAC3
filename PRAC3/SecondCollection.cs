@@ -95,18 +95,6 @@ namespace PRAC3
             }
         }
 
-            public static bool TryParseNumber(string input, out int result)
-            {
-            if (int.TryParse(input, out result))
-            {
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Ошибка: это не число!");
-                return false;
-            }
-    }
 
         public class CarComparer : IComparer<BaseVehicle>
         {
